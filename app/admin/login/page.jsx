@@ -14,7 +14,7 @@ const AdminLogin = () => {
       alert("Please fill in all fields");
       return;
     }
-    const res = await fetch('http://localhost:3000/api/admin/login', {
+    const res = await fetch('https://online-banking-w38v.onrender.com/api/admin/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
