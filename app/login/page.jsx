@@ -16,7 +16,7 @@ const UserLogin = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/users/login", {
+      const res = await fetch("https://online-banking-w38v.onrender.com/api/users/login", {
         method: "POST",
         cache: "no-store",
         headers: {
