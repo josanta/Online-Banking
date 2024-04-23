@@ -16,7 +16,7 @@ export default function Users() {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/users", {
+        const res = await fetch("https://online-banking-w38v.onrender.com/api/users", {
           method: "GET",
           cache: "no-store",
         });
