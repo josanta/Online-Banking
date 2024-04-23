@@ -30,7 +30,7 @@ export default function Home({ params }) {
   const getUser = async () => {
     if (id) {
       try {
-        const res = await fetch(`http://localhost:3000/api/users/${id}`);
+        const res = await fetch(`https://online-banking-w38v.onrender.com/api/users/${id}`);
         if (!res.ok) {
           throw new Error("Failed to fetch user data");
         }
