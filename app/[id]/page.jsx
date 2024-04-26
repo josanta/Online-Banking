@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter, redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
+import PopupModal from '@/components/PopupModal'
 
 export default function Home({ params }) {
   useLayoutEffect(() => {
@@ -88,6 +89,7 @@ export default function Home({ params }) {
   };
   return (
     <>
+      <PopupModal message="Welcome to our Online Banking platform. We sincerely appreciate your decision to entrust us with your financial needs. Our dedicated team is committed to providing you with exceptional service tailored to your requirements. Whether you're managing your accounts, making transactions, or seeking assistance, we're here to support you every step of the way. With our user-friendly interface and robust security measures, you can confidently navigate your financial journey with ease and peace of mind. Thank you for choosing us as your banking partner." />
       <div className="header flex relative justify-end items-center bg-blue-500">
         <button
           onClick={handleLogout}
