@@ -98,7 +98,7 @@ export default function Home({ params }) {
       </div>
       <div className="bg-gray-100 max-w-lg m-auto p-4 mt-6 pb-6">
         <div className="flex justify-center logo mb-4 text-3xl">
-          <Image src="/logo.png" width={170} height={100} />
+          <Image src="/logo.png" width={500} height={100} />
         </div>
         {showModal && (
           <div className="modal bg-red-300 p-6 mb-4">
