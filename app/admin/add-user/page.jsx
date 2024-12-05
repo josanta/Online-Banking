@@ -73,7 +73,7 @@ const AddUser = () => {
     <div>
       <NavBar />
       <hr />
-      <div className="flex justify-center items-center h-screen bg-gray-800">
+      <div className="flex justify-center items-center bg-gray-800">
         <div className="bg-white w-96 p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center">Add New User</h2>
           <form>
