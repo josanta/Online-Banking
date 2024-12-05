@@ -74,7 +74,7 @@ const AddUser = () => {
       <NavBar />
       <hr />
       <div className="flex justify-center items-center bg-gray-800">
-        <div className="bg-white w-96 p-8 rounded-lg shadow-md">
+        <div className="bg-white w-96 p-8 rounded-lg shadow-md mt-4">
           <h2 className="text-2xl font-bold mb-4 text-center">Add New User</h2>
           <form>
             <div className="mb-4">
