@@ -46,7 +46,7 @@ const UserLogin = () => {
     <div className="flex justify-center items-center h-screen bg-gray-800">
       <div className="bg-white w-96 p-8 rounded-lg shadow-md">
         <div className="flex justify-center text-blue-600 logo mb-4 text-3xl">
-          Online Banking
+          Central Pacific Bank
         </div>
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         <form>
