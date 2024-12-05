@@ -20,8 +20,13 @@ const AddUser = () => {
   const [ServiceCharge, setServiceCharge] = useState("");
   const [Balance, setBalance] = useState("");
   const [Status, setActive] = useState(false);
+  const [profilePhoto, setProfilePicture] = useState(null);
   const router = useRouter();
 
+
+  function setProfile(image) {
+    setProfilePicture(image);
+  }
   const submitUserData = async (e) => {
     e.preventDefault();
     if (
@@ -30,13 +35,14 @@ const AddUser = () => {
       !AccountNO ||
       !Balance ||
       !UserPassword ||
-      !ServiceCharge
+      !ServiceCharge ||
+      !profilePhoto
     ) {
       alert("All fields are required");
       return;
     }
     try {
-      const res = await fetch("https://online-banking-w38v.onrender.com/api/users", {
+      const res = await fetch("http://localhost:3000//api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +55,8 @@ const AddUser = () => {
           UserPassword,
           ServiceCharge,
           Balance,
-          Status
+          Status,
+          profilePhoto
         }),
       });
       if (res.ok) {
@@ -59,6 +66,8 @@ const AddUser = () => {
       console.log(error);
     }
   };
+
+
 
   return (
     <div>
@@ -181,6 +190,22 @@ const AddUser = () => {
                 <option value="true">True</option>
                 <option value="false">False</option>
               </select>
+              <div className="mb-4">
+                <label
+                  htmlFor="profilePicture"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
+                  Profile Picture
+                </label>
+                <input
+                  type="file"
+                  id="profilePicture"
+                  name="profilePicture"
+                  accept="image/*"
+                  onChange={(e) => setProfile(e.target.files[0])}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                />
+              </div>
             </div>
             <button
               type="submit"
