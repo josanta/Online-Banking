@@ -5,11 +5,13 @@ import { MongoError } from "mongodb";
 
 export async function POST(request) {
     try {
-        const { FirstName, LastName, AccountNO, UserPassword, ServiceCharge, Balance, Status } = await request.json();
-
+        const { FirstName, LastName, AccountNO, UserPassword, ServiceCharge, Balance, Status, profilePhoto } = await request.json();
+        // var data = await request.json();
+        // console.log("========> DAta");
+        // console.log(data);
         await connectDB(); // Ensure connection to the database
-
-        await User.create({ FirstName, LastName, AccountNO, UserPassword, ServiceCharge, Balance, Status });
+        // console.log(`profile photo: ${profilePhoto}`)
+        await User.create({ FirstName, LastName, AccountNO, UserPassword, ServiceCharge, Balance, Status, profilePhoto});
 
         return NextResponse.json({ message: "User Added!" }, { status: 201 });
     } catch (error) {
