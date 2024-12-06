@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import ItemComponent from "@/components/ItemComponent";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Cookies from "js-cookie";
 import { useRouter, redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
@@ -22,6 +22,7 @@ export default function Home({ params }) {
   const [serviceFee, setServiceFee] = useState("0.00");
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
   const FullName = `${fname} ${lname}`.toUpperCase();
   const router = useRouter();
   var balance_str = "Ksh " + Number(Balance).toLocaleString();
@@ -44,6 +45,8 @@ export default function Home({ params }) {
         setBalance(data.Balance);
         setFname(data.FirstName);
         setLname(data.LastName);
+        setProfilePicture(data.profilePhoto)
+        console.log(profilePicture)
       } catch (error) {
         console.error("Error:", error);
         // Handle error (e.g., display error message)
@@ -117,6 +120,7 @@ export default function Home({ params }) {
         )}
         <div className="info">
           <div className="flex welcome-user font-semibold text-3xl mb-2 justify-end">
+          <Image src={profilePicture} width={250} height={250}/>
             Welcome, {FullName}
           </div>
           <ItemComponent title="Account Number" value={AccountNumber} />
