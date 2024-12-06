@@ -22,7 +22,7 @@ export default function Home({ params }) {
   const [serviceFee, setServiceFee] = useState("0.00");
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
-  const [profilePicture, setProfilePicture] = useState(null);
+  const [profilePicture, setProfilePicture] = useState("");
   const FullName = `${fname} ${lname}`.toUpperCase();
   const router = useRouter();
   var balance_str = "Ksh " + Number(Balance).toLocaleString();
