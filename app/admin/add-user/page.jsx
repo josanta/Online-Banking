@@ -20,12 +20,22 @@ const AddUser = () => {
   const [ServiceCharge, setServiceCharge] = useState("");
   const [Balance, setBalance] = useState("");
   const [Status, setActive] = useState(false);
-  const [profilePhoto, setProfilePicture] = useState(null);
+  const [profilePhoto, setProfilePicture] = useState("null");
   const router = useRouter();
 
 
   function setProfile(image) {
-    setProfilePicture(image);
+    var reader = new FileReader();
+    reader.readAsDataURL(image);
+    var imagebase = null;
+    reader.onload = () => {
+      imagebase = reader.result;
+      // console.log(imagebase)
+      setProfilePicture(imagebase);
+    };
+    reader.onerror = error => {
+      console.log("Error: ", error);
+    };
   }
   const submitUserData = async (e) => {
     e.preventDefault();
@@ -42,7 +52,7 @@ const AddUser = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000//api/users", {
+      const res = await fetch("https://online-banking-w38v.onrender.com/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,8 +83,8 @@ const AddUser = () => {
     <div>
       <NavBar />
       <hr />
-      <div className="flex justify-center items-center bg-gray-800">
-        <div className="bg-white w-96 p-8 rounded-lg shadow-md mt-4">
+      <div className="flex justify-center items-center mt-4 bg-gray-800">
+        <div className="bg-white w-96 p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center">Add New User</h2>
           <form>
             <div className="mb-4">
