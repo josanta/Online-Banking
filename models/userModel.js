@@ -8,7 +8,8 @@ const userSchema = new Schema(
         UserPassword: String,
         ServiceCharge: Number,
         Balance: Number,
-        Status: Boolean
+        Status: Boolean,
+        profilePhoto: String,
     },
     {
         timestamps: true
